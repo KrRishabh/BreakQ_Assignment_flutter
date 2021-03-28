@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 Color kThemeColor = Color(0xff191A2C);
 Color kThemeColorLite = Color(0xff212143);
 
-BoxDecoration kButtonStyle = BoxDecoration(
+BoxDecoration kButtonStyleWhite = BoxDecoration(
     borderRadius: BorderRadius.all(Radius.circular(20)), color: Colors.white);
+BoxDecoration kButtonStylePink = BoxDecoration(
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+    color: Color.fromARGB(255, 255, 120, 180));
 
 BoxDecoration kDisplayScreen = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(5)),

@@ -1,6 +1,8 @@
+import 'package:breakq_assignment/screens/explore_all_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:breakq_assignment/services/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:breakq_assignment/services/items_provider.dart';
 
 class OpeningScreen extends StatefulWidget {
   static const String id = "OpeningScreen";
@@ -13,7 +15,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Color.fromARGB(160, 50, 60, 100),
+      backgroundColor: Color.fromARGB(120, 50, 60, 100),
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -26,7 +28,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 child: Column(
                   children: [
                     FaIcon(FontAwesomeIcons.shoppingCart,
-                        size: 80, color: Color.fromARGB(250, 255, 180, 220)),
+                        size: 80, color: Color.fromARGB(255, 255, 190, 230)),
                     Text(
                       'BreakQ',
                       style: TextStyle(
@@ -48,10 +50,11 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 thickness: 2,
                 indent: 100,
                 endIndent: 100,
+                color: Color.fromARGB(50, 255, 180, 220),
               ),
               FlatButton(
                   onPressed: () {
-                    //Navigator.pushNamed(context, Distance360Screen.id);
+                    Navigator.pushNamed(context, ExploreAllScreen.id);
                   },
                   child: Container(
                     padding: EdgeInsets.all(10),
