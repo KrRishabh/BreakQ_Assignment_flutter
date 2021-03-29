@@ -4,6 +4,7 @@ import 'package:breakq_assignment/services/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:breakq_assignment/services/items_provider.dart';
 import 'package:breakq_assignment/services/item_model.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class OpeningScreen extends StatefulWidget {
   static const String id = "OpeningScreen";
@@ -12,17 +13,21 @@ class OpeningScreen extends StatefulWidget {
 }
 
 class _OpeningScreenState extends State<OpeningScreen> {
+  bool showSpinner = false;
   ItemProvider _itemProvider = ItemProvider();
   List<Item> allItems;
 
   fetchItemList() async {
+    setState(() {
+      showSpinner = true;
+    });
     await _itemProvider.fetchAllItems();
     allItems = _itemProvider.items;
   }
 
   @override
   void initState() {
-    fetchItemList();
+    //fetchItemList();
     super.initState();
   }
 
@@ -61,17 +66,22 @@ class _OpeningScreenState extends State<OpeningScreen> {
                   ],
                 ),
               ),
-              Divider(
-                thickness: 2,
-                indent: 100,
-                endIndent: 100,
-                color: Color.fromARGB(50, 255, 180, 220),
-              ),
+              showSpinner
+                  ? SpinKitThreeBounce(
+                      color: kThemeColor,
+                      size: 40,
+                    )
+                  : SizedBox(
+                      height: 40,
+                    ),
               FlatButton(
                   onPressed: () async {
                     //await _itemProvider.fetchAllItems();
                     //Navigator.pushNamed(context, ExploreAllScreen.id);
                     await fetchItemList();
+                    setState(() {
+                      showSpinner = false;
+                    });
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return ExploreAllScreen(allItems);
