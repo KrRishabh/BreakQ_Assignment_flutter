@@ -71,6 +71,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                   onPressed: () async {
                     //await _itemProvider.fetchAllItems();
                     //Navigator.pushNamed(context, ExploreAllScreen.id);
+                    await fetchItemList();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return ExploreAllScreen(allItems);

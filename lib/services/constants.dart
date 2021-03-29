@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-Color kThemeColor = Color(0xff191A2C);
-Color kThemeColorLite = Color(0xff212143);
+Color kThemeColor = Color.fromARGB(255, 255, 120, 180);
+Color kThemeColorLite = Color.fromARGB(255, 255, 190, 230);
+Color kDarkBlue = Color.fromARGB(255, 25, 30, 50);
 
 BoxDecoration kButtonStyleWhite = BoxDecoration(
     borderRadius: BorderRadius.all(Radius.circular(20)), color: Colors.white);
@@ -16,6 +17,11 @@ BoxDecoration kDisplayScreen = BoxDecoration(
 );
 
 TextStyle kButtonText = TextStyle(color: kThemeColor, fontSize: 40);
-TextStyle kUIText = TextStyle(color: Colors.white, fontSize: 18);
+
+TextStyle kUIText = TextStyle(
+    color: Colors.white,
+    fontFamily: 'Cagliostro',
+    fontSize: 15,
+    fontWeight: FontWeight.bold);
 TextStyle kHeadingText =
     TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold);
