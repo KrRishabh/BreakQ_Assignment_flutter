@@ -14,7 +14,7 @@ class BreakQ extends StatelessWidget {
       initialRoute: OpeningScreen.id,
       routes: {
         OpeningScreen.id: (context) => OpeningScreen(),
-        ExploreAllScreen.id: (context) => ExploreAllScreen(),
+        //ExploreAllScreen.id: (context) => ExploreAllScreen(),
       },
     );
   }

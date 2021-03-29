@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:breakq_assignment/services/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:breakq_assignment/services/items_provider.dart';
+import 'package:breakq_assignment/services/item_model.dart';
 
 class OpeningScreen extends StatefulWidget {
   static const String id = "OpeningScreen";
@@ -11,6 +12,20 @@ class OpeningScreen extends StatefulWidget {
 }
 
 class _OpeningScreenState extends State<OpeningScreen> {
+  ItemProvider _itemProvider = ItemProvider();
+  List<Item> allItems;
+
+  fetchItemList() async {
+    await _itemProvider.fetchAllItems();
+    allItems = _itemProvider.items;
+  }
+
+  @override
+  void initState() {
+    fetchItemList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -53,8 +68,13 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 color: Color.fromARGB(50, 255, 180, 220),
               ),
               FlatButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, ExploreAllScreen.id);
+                  onPressed: () async {
+                    //await _itemProvider.fetchAllItems();
+                    //Navigator.pushNamed(context, ExploreAllScreen.id);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ExploreAllScreen(allItems);
+                    }));
                   },
                   child: Container(
                     padding: EdgeInsets.all(10),
