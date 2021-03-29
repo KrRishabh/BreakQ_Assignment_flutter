@@ -18,119 +18,122 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      backgroundColor: kDarkBlue,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black54),
-        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.white70),
+        backgroundColor: kDarkBlue,
         title: Text(
           currentItem.productName,
           style: TextStyle(
-              color: Colors.black54,
-              fontSize: 30,
+              color: Colors.white70,
+              fontSize: 25,
               fontFamily: 'OpenSans',
               fontWeight: FontWeight.w900),
         ),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-                borderRadius: BorderRadius.circular(18),
-                child: FadeInImage.assetNetwork(
-                  height: 250,
-                  fadeInCurve: Curves.easeIn,
-                  placeholder: 'assets/placeholderimage.png',
-                  image: currentItem.productImage,
-                )),
-            Expanded(
-                child: Container(
-              decoration: BoxDecoration(
-                  color: kDarkBlue,
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30))),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Text(
-                    currentItem.productName,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Cagliostro',
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    '- by ' + currentItem.productBrand,
-                    style: TextStyle(
-                        color: Colors.white54,
-                        fontFamily: 'Cagliostro',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Color:  ' + currentItem.productColor,
-                            style: kUIText,
-                          ),
-                          Text(
-                            'Material:  ' + currentItem.productMaterial,
-                            style: kUIText,
-                          ),
-                          Text(
-                            'Launch Year:  ' +
-                                currentItem.productLaunchDate.substring(0, 4),
-                            style: kUIText,
-                          ),
-                          Text(
-                            'Category:  ' + currentItem.productCategory,
-                            style: kUIText,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        '₹ ' + currentItem.productCost,
-                        style: kUIText.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 40),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    currentItem.productSummary,
-                    style: TextStyle(color: Colors.white54),
-                  ),
-                  FlatButton(
-                      onPressed: null,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        width: double.infinity,
-                        decoration: kButtonStylePink,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(50)),
+                  child: FadeInImage.assetNetwork(
+                    height: 310,
+                    fadeInCurve: Curves.easeIn,
+                    placeholder: 'assets/placeholderimage.png',
+                    image: currentItem.productImage,
+                  )),
+              Container(
+                height: 350,
+                decoration: BoxDecoration(
+                  color: kDarkBlue,
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      currentItem.productName,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Cagliostro',
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '- by ' + currentItem.productBrand,
+                      style: TextStyle(
+                          color: Colors.white54,
+                          fontFamily: 'Cagliostro',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            FaIcon(FontAwesomeIcons.cartPlus,
-                                size: 20, color: Colors.white),
                             Text(
-                              '  Add to Cart',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontFamily: 'OpenSans',
-                                  fontWeight: FontWeight.w900),
+                              'Color:  ' + currentItem.productColor,
+                              style: kUIText,
+                            ),
+                            Text(
+                              'Material:  ' + currentItem.productMaterial,
+                              style: kUIText,
+                            ),
+                            Text(
+                              'Launch Year:  ' +
+                                  currentItem.productLaunchDate.substring(0, 4),
+                              style: kUIText,
+                            ),
+                            Text(
+                              'Category:  ' + currentItem.productCategory,
+                              style: kUIText,
                             ),
                           ],
                         ),
-                      )),
-                ],
-              ),
-            ))
-          ],
+                        Text(
+                          '₹ ' + currentItem.productCost,
+                          style: kUIText.copyWith(
+                              fontWeight: FontWeight.bold, fontSize: 40),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      currentItem.productSummary,
+                      style: TextStyle(color: Colors.white54),
+                    ),
+                    FlatButton(
+                        onPressed: null,
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          width: double.infinity,
+                          decoration: kButtonStylePink,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FaIcon(FontAwesomeIcons.cartPlus,
+                                  size: 20, color: Colors.white),
+                              Text(
+                                '  Add to Cart',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: 'OpenSans',
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     ));
