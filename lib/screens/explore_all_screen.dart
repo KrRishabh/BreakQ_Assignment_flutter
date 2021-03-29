@@ -85,9 +85,10 @@ class _ExploreAllScreenState extends State<ExploreAllScreen> {
                         height: 100,
                         fadeInCurve: Curves.easeIn,
                         placeholder: 'assets/placeholderimage.png',
-                        image: (index % 2 == 0)
-                            ? 'https://expertphotography.com/wp-content/uploads/2019/07/photography-lenses-oranges.jpg'
-                            : 'https://karltayloreducation.com/wp-content/uploads/2017/12/Chanel5_product_photography.jpg',
+                        image: itemList[index].productImage,
+                        // image: (index % 2 == 0)
+                        //     ? 'https://expertphotography.com/wp-content/uploads/2019/07/photography-lenses-oranges.jpg'
+                        //     : 'https://karltayloreducation.com/wp-content/uploads/2017/12/Chanel5_product_photography.jpg',
                       )),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

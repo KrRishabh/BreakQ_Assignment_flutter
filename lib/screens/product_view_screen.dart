@@ -38,9 +38,8 @@ class _ProductPageState extends State<ProductPage> {
                 child: FadeInImage.assetNetwork(
                   height: 250,
                   fadeInCurve: Curves.easeIn,
-                  placeholder: 'placeholderimage.png',
-                  image:
-                      'https://karltayloreducation.com/wp-content/uploads/2017/12/Chanel5_product_photography.jpg',
+                  placeholder: 'assets/placeholderimage.png',
+                  image: currentItem.productImage,
                 )),
             Expanded(
                 child: Container(
