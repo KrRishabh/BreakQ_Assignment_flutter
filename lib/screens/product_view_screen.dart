@@ -26,7 +26,7 @@ class _ProductPageState extends State<ProductPage> {
           currentItem.productName,
           style: TextStyle(
               color: Colors.white70,
-              fontSize: 25,
+              fontSize: 23,
               fontFamily: 'OpenSans',
               fontWeight: FontWeight.w900),
         ),
@@ -37,7 +37,7 @@ class _ProductPageState extends State<ProductPage> {
             children: <Widget>[
               ClipRRect(
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(40),
+                      bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
                   child: FadeInImage.assetNetwork(
                     height: 310,
@@ -46,7 +46,7 @@ class _ProductPageState extends State<ProductPage> {
                     image: currentItem.productImage,
                   )),
               Container(
-                height: 350,
+                height: 360,
                 decoration: BoxDecoration(
                   color: kDarkBlue,
                 ),
